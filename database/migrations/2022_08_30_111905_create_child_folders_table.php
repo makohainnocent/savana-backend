@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('child_folders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("company_id");
-            $table->foreign('company_id')->references("id")->on("company");
-            $table->string('role');
-            $table->string('description');
-            $table->string('access');
-            $table->softDeletes();
+            $table->unsignedBigInteger("folder_id");
+            $table->string("computer_serial");
+            $table->foreign('folder_id')->references("id")->on("folders");
+            $table->foreign('computer_serial')->references("serial")->on("computers");
+            $table->String("name");
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('child_folders');
     }
 };

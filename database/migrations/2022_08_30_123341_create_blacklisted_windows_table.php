@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('computers', function (Blueprint $table) {
+        Schema::create('blacklisted_windows', function (Blueprint $table) {
             $table->id();
-            $table->string("serial")->unique();
-            $table->string("cpuArchitecture");
-            $table->string("osArchitecture");
-            $table->string("osType");
-            $table->string("computerName");
             $table->unsignedBigInteger("company_id");
             $table->foreign('company_id')->references("id")->on("company");
-            $table->softDeletes();
+            $table->string("window");
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('computers');
+        Schema::dropIfExists('blacklisted_windows');
     }
 };

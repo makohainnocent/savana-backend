@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('commands', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("company_id");
-            $table->foreign('company_id')->references("id")->on("company");
-            $table->string('role');
-            $table->string('description');
-            $table->string('access');
-            $table->softDeletes();
+            $table->string("to");
+            $table->foreign('to')->references("serial")->on("computers");
+            $table->unsignedBigInteger("from");
+            $table->foreign('from')->references("id")->on("users");
+            $table->string("command");
+            $table->string("status");
+            $table->string("feedback");
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('commands');
     }
 };
