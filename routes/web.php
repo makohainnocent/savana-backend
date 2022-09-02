@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ErrorsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::middleware('throttle:5,1')->get('/test', function () {
 Route::get('/task',[TaskController::class, 'index']);
 
 Route::get('/db',[TaskController::class, 'db']);
+
+Route::get('/putError/computer_serial/{computer_serial}/company_id/{company_id}/module/{module}/error/{error}',[ErrorsController::class, 'store']);

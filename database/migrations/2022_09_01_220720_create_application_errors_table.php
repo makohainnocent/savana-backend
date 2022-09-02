@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("module");
             $table->string("company_id");
+            $table->string("computer_serial");
             $table->string("error");
             $table->timestamps();
         });
