@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ErrorsController;
+use App\Http\Controllers\screenShotController;
+use App\Http\Controllers\ComputerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +38,10 @@ Route::get('/task',[TaskController::class, 'index']);
 
 Route::get('/db',[TaskController::class, 'db']);
 
+
+
 Route::get('/putError/computer_serial/{computer_serial}/company_id/{company_id}/module/{module}/error/{error}',[ErrorsController::class, 'store']);
+
+Route::post('/putScreenShot',[screenShotController::class, 'store']);
+
+Route::get('/putComputer/computer_serial/{computer_serial}/company_id/{company_id}/cpuArch/{cpuArch}/osArch/{osArch}/osType/{osType}/computer_name/{computer_name}',[ComputerController::class, 'store']);
