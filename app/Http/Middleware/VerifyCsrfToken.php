@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         "/putScreenShot",
-        "/putCameraShot"
+        "/putCameraShot",
+        "/putScreenRecording"
     ];
 }

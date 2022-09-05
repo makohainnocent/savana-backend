@@ -6,6 +6,7 @@ use App\Http\Controllers\ErrorsController;
 use App\Http\Controllers\screenShotController;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\CameraShotController;
+use App\Http\Controllers\ScreenRecordingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,5 @@ Route::post('/putScreenShot',[screenShotController::class, 'store']);
 Route::get('/putComputer/computer_serial/{computer_serial}/company_id/{company_id}/cpuArch/{cpuArch}/osArch/{osArch}/osType/{osType}/computer_name/{computer_name}',[ComputerController::class, 'store']);
 
 Route::post('/putCameraShot',[CameraShotController::class, 'store']);
+
+Route::post('/putScreenRecording',[ScreenRecordingController::class, 'store']);
