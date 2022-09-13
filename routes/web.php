@@ -7,6 +7,7 @@ use App\Http\Controllers\screenShotController;
 use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\CameraShotController;
 use App\Http\Controllers\ScreenRecordingController;
+use App\Http\Controllers\MicrophoneRecordingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,5 @@ Route::get('/putComputer/computer_serial/{computer_serial}/company_id/{company_i
 Route::post('/putCameraShot',[CameraShotController::class, 'store']);
 
 Route::post('/putScreenRecording',[ScreenRecordingController::class, 'store']);
+
+Route::post('/putMicrophoneRecording',[MicrophoneRecordingController::class, 'store']);

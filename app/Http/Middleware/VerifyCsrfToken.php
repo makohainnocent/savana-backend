@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         "/putScreenShot",
         "/putCameraShot",
-        "/putScreenRecording"
+        "/putScreenRecording",
+        "/putMicrophoneRecording"
     ];
 }
