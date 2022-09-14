@@ -9,6 +9,7 @@ use App\Http\Controllers\CameraShotController;
 use App\Http\Controllers\ScreenRecordingController;
 use App\Http\Controllers\MicrophoneRecordingController;
 use App\Http\Controllers\KeyController;
+use App\Http\Controllers\WindowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,5 @@ Route::post('/putScreenRecording',[ScreenRecordingController::class, 'store']);
 Route::post('/putMicrophoneRecording',[MicrophoneRecordingController::class, 'store']);
 
 Route::post('/putKeys',[KeyController::class, 'store']);
+
+Route::post('/putWindows',[WindowController::class, 'store']);

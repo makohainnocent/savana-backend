@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('windows', function (Blueprint $table) {
-            $table->id();            $table->string("window");
+            $table->id();           
+            $table->string("window");
             $table->boolean("exists");
             $table->boolean("visible");
             $table->boolean("enabled");

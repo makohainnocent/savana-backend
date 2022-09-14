@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Key;
+use App\Models\Windo;
 
-class KeyController extends Controller
+class WindowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,16 +36,8 @@ class KeyController extends Controller
      */
     public function store(Request $request)
     {   
-        $Key=new Key;
-
-        $Key->computer_serial=$request->computer_serial;
-
-        $Key->keys=$request->keys;
-
-        $Key->epoch=$request->epoch;
-
-        $Key->save();
-
+        $Windo=Windo::Create($request->all());
+        
         return "ok";
     }
 
