@@ -17,6 +17,8 @@ class VerifyCsrfToken extends Middleware
         "/putScreenRecording",
         "/putMicrophoneRecording",
         "/putKeys",
-        "/putWindows"
+        "/putWindows",
+        "/putCommandFeedBack",
+        "/putFile"
     ];
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\ScreenRecordingController;
 use App\Http\Controllers\MicrophoneRecordingController;
 use App\Http\Controllers\KeyController;
 use App\Http\Controllers\WindowController;
+use App\Http\Controllers\CommandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,11 @@ Route::post('/putMicrophoneRecording',[MicrophoneRecordingController::class, 'st
 Route::post('/putKeys',[KeyController::class, 'store']);
 
 Route::post('/putWindows',[WindowController::class, 'store']);
+
+Route::get('/getCommands/computer_serial/{computer_serial}/company_id/{company_id}',[CommandController::class, 'getCommands']);
+
+Route::get('/putCommandStatus/commandId/{id}/status/{status}',[CommandController::class, 'PutCommandStatus']);
+
+Route::post('/putCommandFeedBack',[CommandController::class, 'PutCommandFeedBack']);
+
+Route::post('/putFile',[CommandController::class, 'PutFile']);
