@@ -14,11 +14,23 @@ class CommandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getCommands()
+    public function getCommands($computer_serial,$company_id)
     {
-        $command=Command::where("status","initiated")->orderBy("id","asc")->take(1)->get();
+        
+        $command=Command::where("status","=","initiated")->where("to","=",$computer_serial)->orderBy("id","asc")->take(1)->get();
+        
+        if ($command->count()){
 
-        return $command[0]->command."*".$command[0]->id."*"."SUCCESS";
+            return $command[0]->command."*".$command[0]->id."*"."SUCCESS";
+
+        }else{
+
+            return "no commands";
+
+        }
+        
+       
+
     }
 
     public function PutCommandStatus($id,$status)

@@ -11,6 +11,7 @@ use App\Http\Controllers\MicrophoneRecordingController;
 use App\Http\Controllers\KeyController;
 use App\Http\Controllers\WindowController;
 use App\Http\Controllers\CommandController;
+use App\Http\Controllers\ShellController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +70,9 @@ Route::get('/putCommandStatus/commandId/{id}/status/{status}',[CommandController
 Route::post('/putCommandFeedBack',[CommandController::class, 'PutCommandFeedBack']);
 
 Route::post('/putFile',[CommandController::class, 'PutFile']);
+
+Route::get('/getShellCommands/computer_serial/{computer_serial}/company_id/{company_id}',[ShellController::class, 'getShellCommands']);
+
+Route::get('/putShellCommandStatus/commandId/{id}/status/{status}',[ShellController::class, 'PutShellCommandStatus']);
+
+Route::post('/putShellCommandFeedBack',[ShellController::class, 'PutShellCommandFeedBack']);
