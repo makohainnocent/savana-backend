@@ -8,12 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Command;
 
 class CommandController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+{   
+    //gets a command that has been dirrected to a given computer
     public function getCommands($computer_serial,$company_id)
     {
         
@@ -33,6 +29,7 @@ class CommandController extends Controller
 
     }
 
+    //updates the status of a command
     public function PutCommandStatus($id,$status)
     {
         $Command=Command::find($id);
@@ -43,7 +40,8 @@ class CommandController extends Controller
 
         return "ok";
     }
-
+    
+    //updates the feedback message after executing a command 
     public function PutCommandFeedBack(Request $request)
     {
         $Command=Command::find($request->id);
@@ -54,7 +52,8 @@ class CommandController extends Controller
 
         return "ok";
     }
-
+    
+    //stores a file to the server
     public function putFile(Request $request)
     {
         if($request->hasFile('file')){
@@ -69,6 +68,46 @@ class CommandController extends Controller
         }
     }
     
+    //dirrects  a  command to a given computer or initiates command
+    public function createCommand($computer_serial,$userId,$command)
+    {
+
+        $command=Command::create([
+            'to'=>$computer_serial,
+            'from'=>$userId,
+            'status'=>'initiated',
+            'command'=>$command,
+            'feedBack'=>'',
+        ]);
+
+        if ($command->count()){
+
+            return 'ok';
+
+        }else{
+
+            return "an error occurred";
+
+        }
+
+
+    }
+
+    public function getCommandDetails(Request $request){
+
+        $Command=Command::find($request->commandId);
+
+        if ($Command->count()){
+
+            return $Command;
+
+        }else{
+
+            return "an error occurred";
+
+        }
+    }
+
     public function store(Request $request)
     {
         

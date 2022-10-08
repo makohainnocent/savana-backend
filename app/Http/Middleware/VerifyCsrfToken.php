@@ -20,6 +20,9 @@ class VerifyCsrfToken extends Middleware
         "/putWindows",
         "/putCommandFeedBack",
         "/putFile",
-        "/putShellCommandFeedBack"
+        "/putShellCommandFeedBack",
+        "/getCommandDetails",
+        "/putMessage",
+        "/getMessage"
     ];
 }

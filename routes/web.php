@@ -12,6 +12,7 @@ use App\Http\Controllers\KeyController;
 use App\Http\Controllers\WindowController;
 use App\Http\Controllers\CommandController;
 use App\Http\Controllers\ShellController;
+use App\Http\Controllers\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,3 +77,15 @@ Route::get('/getShellCommands/computer_serial/{computer_serial}/company_id/{comp
 Route::get('/putShellCommandStatus/commandId/{id}/status/{status}',[ShellController::class, 'PutShellCommandStatus']);
 
 Route::post('/putShellCommandFeedBack',[ShellController::class, 'PutShellCommandFeedBack']);
+
+Route::get('/stream', function () {
+    return view('streamTest');
+});
+
+Route::get('/createCommand/computer_serial/{computer_serial}/userId/{userId}/command/{command}',[CommandController::class, 'createCommand']);
+
+Route::post('/getCommandDetails',[CommandController::class, 'getCommandDetails']);
+
+Route::post('/putMessage',[MessagesController::class, 'putMessage']);
+
+Route::post('/getMessage',[MessagesController::class, 'getMessage']);
